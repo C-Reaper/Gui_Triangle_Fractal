@@ -36,7 +36,12 @@ void RenderSierpinskiTriangle(Vec2 p,Vec2 d,int Iteration,int MaxIteration,Pixel
 }
 
 void Setup(AlxWindow* w){
-	tv = TransformedViewD_New((Vdc2){ GetWidth(),GetHeight() });
+	tv = TransformedViewD_Make(
+		(Vdc2){ GetWidth(),GetHeight() },
+		(Vdc2){ 0.0f,0.0f },
+		(Vdc2){ 1.0f,1.0f },
+		(double)GetWidth() / (double)GetHeight()
+	);
 	TransformedViewD_Offset(&tv,(Vdc2){ -0.5,0.0 });
 
 	nIterations = 5;
